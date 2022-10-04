@@ -50,6 +50,6 @@ Here is an example of using this annotated script in the terminal.
 python3 anno_script.py Sample1.seg GRCh38.txt log2cr project1
 ```
 
-These are first ten rows of an example of the final output table.
+This is an example of the first ten rows of a final output table.
 
-OUTPUT
+![OUTPUT](https://github.com/DZBohan/CNV_annotated_script/blob/main/images/output.png?raw=true)
