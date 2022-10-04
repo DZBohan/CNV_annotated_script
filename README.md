@@ -18,13 +18,13 @@ This annotated script should have two input files. The first one is the output s
 
 The segment-level CNV files should be like this.
 
-SEGIMAGE
+![SEGIMAGE](https://github.com/DZBohan/CNV_annotated_script/blob/main/images/segfile_sample.png?raw=true)
 
 There are five columns in the segment-level CNV input table. The first column is supposed to be the samples' names in a specific project. One thing you need to know is that usually, the output table from a CNV pipeline only contains the information of one sample. For example, these are two standard output segment-level CNV tables from the GATK CNV pipeline and sequenza CNV pipeline, respectively.
 
-GATK
+![GATK](https://github.com/DZBohan/CNV_annotated_script/blob/main/images/example_gatk.png?raw=true)
 
-SEQUENZA
+![SEQUENZA](https://github.com/DZBohan/CNV_annotated_script/blob/main/images/example_sqza.png?raw=true)
 
 Therefore, you can put all segment data from the same project into one table to get a final result of the whole project.
 
@@ -34,7 +34,7 @@ Different CNV pipelines might use different metrics to indicate copy numbers. GA
 
 The geneinfo file also includes five columns. You can use the GRCh38 geneinfo file we provide in most cases, but you can also use your own versions. Make sure the column names are the same as the ones in the geneinfo file we provide, and the chromosome numbers in this file do not have 'chr'.
 
-GENEIUNFO
+![GENEIUNFO](https://github.com/DZBohan/CNV_annotated_script/blob/main/images/geneinfo_file.png?raw=true)
 
 In addition, this file is not limited to information about genes. You can also use exome, transcriptome, and other information with the same format to generate other levels of CNV results.
 
