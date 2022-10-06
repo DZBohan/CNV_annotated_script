@@ -2,19 +2,17 @@
 
 ## 1. Introduction
 
-This CNV annotated script is a python program that can be used along with the CNV analysis pipelines to convert the results from segments level to genes level and make the results more apparent.
+This CNV annotated script is a python program that can be used along with the CNV analysis pipelines to convert the results from segment-level to other more specific levels, such as gene-level and exon-level, and make the results more apparent.
 
-Most CNV analysis pipelines, such as GATK and sequenza CNV pipelines I built before, usually divide chromosomes into segments depending on the copy number variation. However, in real-life scenario, people prefer to know the CNV of genes rather than segments divided by algorithm.
+Most CNV analysis pipelines, such as [GATK](https://github.com/DZBohan/GATK_CNV_Pipeline.git) and [sequenza](https://github.com/DZBohan/Sequenza_Pipeline.git) CNV pipelines, usually divide chromosomes into segments depending on the copy number variation. However, in a real-life scenario, people prefer to know the CNV of some meaningful segments like genes and exons rather than segments divided by algorithm. In this documentation, I will use `gene` stands for all types of meaningful segments, but you should know that the results of this program are not limited to the gene-level.
 
-In addition, different CNV analysis tools use different metrics, such as copy number, copy ratio, or log2 copy ratio, to indicate copy number changes, so it is necessary to unify the metrics produced by different tools into the most intuitive ones.
+In addition, different CNV analysis tools use different metrics, such as copy number, copy ratio, or log2 copy ratio, to indicate copy number changes, so it is necessary to unify the metrics produced by different tools into the most intuitive one. Those are the reasons for developing this CNV annotated program. No matter which CNV analysis tools you used, you will get unified and more intuitive information finally by using this CNV annotated script.
 
-Those are the reasons for developing this CNV annotated program. No matter which CNV analysis tools you use, you will get unified information finally by using the CNV annotated script.
-
-What you get finally is the copy number changes of each gene on different samples of a project. For example, `0` means there is no copy number change, `-1` means there is a copy loss, `1` means there is a copy gain, and `2` means there are two copy gains.
+What you get finally is the copy number changes table of each gene on different samples of a project. For example, `0` means there is no copy number change, `-1` means there is a copy loss, `1` means there is a copy gain, and `2` means there are two copy gains.
 
 ## 2. Standard Input Files
 
-This annotated script should have two input files. The first one is the output segment-level CNV results from CNV pipelines. The second one is a geneinfo file containing all human genes and their position on chromosomes.
+This CNV annotated script should have two input files. The first one is the output segment-level CNV results from CNV pipelines. The second one is a geneinfo file containing all human genes and their position on chromosomes.
 
 The segment-level CNV files should be like this.
 
