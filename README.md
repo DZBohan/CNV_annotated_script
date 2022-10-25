@@ -18,17 +18,13 @@ The segment-level CNV files should be like this.
 
 ![SEGIMAGE](https://github.com/DZBohan/CNV_annotated_script/blob/main/images/segfile_sample.png?raw=true)
 
-There are five columns in the segment-level CNV input table. The first column is supposed to be the samples' names in a specific project. One thing you need to know is that usually, the output table from a CNV pipeline only contains the information of one sample. For example, these are two standard output segment-level CNV tables from the GATK CNV pipeline and sequenza CNV pipeline, respectively.
+There are four columns in the segment-level CNV input table. Each row of the table stands for a segment distinguished by the algorithm of the CNV pipeline. First three columns of the table, Chromosome, Start, and End, give the positions of segments. 
 
-![GATK](https://github.com/DZBohan/CNV_annotated_script/blob/main/images/example_gatk.png?raw=true)
+The last column of the segment-level CNV table is called Segment_Mean, meaning a variable that can indicate the copy numbers per segment. In this algorithm, you can use three metrics, copy number, copy ratio, and log2 copy ratio, for this column.
 
-![SEQUENZA](https://github.com/DZBohan/CNV_annotated_script/blob/main/images/example_sqza.png?raw=true)
+Different CNV pipelines might use different metrics to indicate copy numbers. GATK CNV pipeline uses log2 copy ratio as the segment mean value, but the Sequenza CNV pipeline provides copy number and copy ratio. you can use any of these three metrics to generate the same result.
 
-Therefore, you can put all segment data from the same project into one table to get a final result of the whole project.
-
-The last column of the segment-level CNV table is called Segment_Mean, meaning a variable that can indicate the copy numbers per segment. In this algorithm, you can use three metrics, copy number, copy ratio, and log2 copy ratio, for this column. 
-
-Different CNV pipelines might use different metrics to indicate copy numbers. GATK CNV pipeline uses log2 copy ratio as the segment mean value, but the sequenza CNV pipeline provides copy number and copy ratio. you can use any of these three metrics to generate the same result.
+![GATK](https://github.com/DZBohan/CNV_annotated_script/blob/main/images/example.png?raw=true)
 
 The geneinfo file also includes five columns. You can use the GRCh38 geneinfo file we provide in most cases, but you can also use your own versions. Make sure the column names are the same as the ones in the geneinfo file we provide, and the chromosome numbers in this file do not have 'chr'.
 
