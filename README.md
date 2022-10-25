@@ -16,17 +16,17 @@ This CNV annotated script should have two input files. The first one is the outp
 
 The segment-level CNV files should be like this.
 
-![SEGIMAGE](https://github.com/DZBohan/CNV_annotated_script/blob/main/images/segfile_sample.png?raw=true)
+![SEGIMAGE](https://github.com/DZBohan/CNV_annotated_script/blob/main/images/segfile_sample_2.png?raw=true)
 
 There are four columns in the segment-level CNV input table. Each row of the table stands for a segment distinguished by the algorithm of the CNV pipeline. First three columns of the table, Chromosome, Start, and End, give the positions of segments. 
 
-The last column of the segment-level CNV table is called Segment_Mean, meaning a variable that can indicate the copy numbers per segment. In this algorithm, you can use three metrics, copy number, copy ratio, and log2 copy ratio, for this column.
+The last column of the segment-level CNV table is called Segment_Mean, meaning a variable that can indicate the copy numbers per segment. In this algorithm, you can use three metrics, `copy number`, `copy ratio`, and `log2 copy ratio`, for this column.
 
-Different CNV pipelines might use different metrics to indicate copy numbers. GATK CNV pipeline uses log2 copy ratio as the segment mean value, but the Sequenza CNV pipeline provides copy number and copy ratio. you can use any of these three metrics to generate the same result.
+Different CNV pipelines might use different metrics to indicate copy numbers. GATK CNV pipeline uses log2 copy ratio as the segment mean value, but the Sequenza CNV pipeline provides copy number and copy ratio. you can use any of these three metrics to generate the same result through this annotated script.
 
 ![GATK](https://github.com/DZBohan/CNV_annotated_script/blob/main/images/example.png?raw=true)
 
-The geneinfo file also includes five columns. You can use the GRCh38 geneinfo file we provide in most cases, but you can also use your own versions. Make sure the column names are the same as the ones in the geneinfo file we provide, and the chromosome numbers in this file do not have 'chr'.
+The geneinfo file includes five columns. You can use the GRCh38 geneinfo file we provide in most cases, but you can also use your own versions. Make sure the column names are the same as the ones in the geneinfo file we provide, and the chromosome numbers in this file do not have 'chr'.
 
 ![GENEIUNFO](https://github.com/DZBohan/CNV_annotated_script/blob/main/images/geneinfo_file.png?raw=true)
 
@@ -34,16 +34,17 @@ In addition, this file is not limited to information about genes. You can also u
 
 ## 3. How To Use
 
-Using this annotation script, you can run it by Python3 with four parameters, the path of the segment-level CNV file, the path of the geneinfo file, the type of the segment mean value you use to indicate the copy number, and the name of the final output file.
+Using this annotation script, you can run it by Python3 with four parameters, `the path of the segment-level CNV file`, `the path of the geneinfo file`, `the type of the segment mean value you use to indicate the copy number`, and `the name of the sample`.
 
 As said in the second part, you are allowed to use three types of metrics, `cn`, `cr`, and `log2cr` as the third parameter. `cn` stands for copy number, `cr` stands for copy ratio, and `log2cr` stands for log2 copy ratio.
 
 Here is an example of using this annotated script in the terminal.
 
 ```
-python3 anno_script.py Sample1.seg GRCh38.txt log2cr project1
+python3 anno_script.py sample.seg geneinfo.txt log2cr sample_name
 ```
+The extension of the segment-level CNV file can be different among different CNV pipelines.
 
 This is an example of the first ten rows of a final output table.
 
-![OUTPUT](https://github.com/DZBohan/CNV_annotated_script/blob/main/images/output.png?raw=true)
+![OUTPUT](https://github.com/DZBohan/CNV_annotated_script/blob/main/images/output_2.png?raw=true)
