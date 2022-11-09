@@ -32,13 +32,13 @@ In addition, this file is not limited to information about genes. You can also u
 
 The basic algorithm of this script is to align genomic genes to segments in the segment-level CNV table and assign the log2 copy rate of the segments to the aligned genes.
 
-Algorithm
+![Algorithm](https://github.com/DZBohan/CNV_annotated_script/blob/main/images/alg.png?raw=true)
 
 The figure above shows the simplest alignment case, but there are more complex cases that arise during the alignment process.
 
 When aligning genomic genes to segments in the segment-level CNV table to obtain gene-level CNV, four scenarios will be encountered during the alignment process as follows.
 
-Overlap
+![Overlap](https://github.com/DZBohan/CNV_annotated_script/blob/main/images/overlap.png?raw=true)
 
 For a gene, the first case is that there is no segment that overlaps it. This is more common at the beginning and end of a chromosome; in addition, the gene may also be located  in the gap between two segments. For this case, we mark the gene as no_overlap.
 
@@ -48,7 +48,7 @@ The third case is that the gene overlaps with two segments. The fourth case is t
 
 After assigning the corresponding log2 copy ratio to all genes, we assign the more intuitive CNV expressions, `loss`, `gain` or `normal`, to them. When using the script, you need to enter three threshold parameters for determining the CNV of genes, `--upper`, `--lower` and `--segmax`.
 
-Threshold
+![Threshold](https://github.com/DZBohan/CNV_annotated_script/blob/main/images/thres.png?raw=true)
 
 A gene with a log2 copy ratio greater than the `--upper` argument and the length of the original segment given its log2 copy ratio is less than or equal to `--segmax` is defined as a copy number `gain`; similarly, a gene with a log2 copy ratoo less than the `--lower` argument and the length of the original segment given its log2 copy rate is less than or equal to `--segmax` is defined as a copy number `loss`. A gene with a log2 copy ratio between `--upper` and `--lower` or with the length of the original fragment given its log2 copy rate greater than `--segmax` is defined as `normal`.
 
@@ -83,8 +83,8 @@ You would end up with two tables. The first table, `sample_annotation.txt`, cont
 
 This is an example of a final output table `sample_annotation.txt`.
 
-fullres
+![fullres](https://github.com/DZBohan/CNV_annotated_script/blob/main/images/fullres.png?raw=true)
 
 This is an example of a final output table `sample_annotation_report.txt`.
 
-report
+![report](https://github.com/DZBohan/CNV_annotated_script/blob/main/images/report.png?raw=true)
