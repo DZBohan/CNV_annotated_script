@@ -52,7 +52,7 @@ After assigning the corresponding log2 copy ratio to all genes, we assign the mo
 
 A gene with a log2 copy ratio greater than the `--upper` argument and the length of the original segment given its log2 copy ratio is less than or equal to `--segmax` is defined as a copy number `gain`; similarly, a gene with a log2 copy ratoo less than the `--lower` argument and the length of the original segment given its log2 copy rate is less than or equal to `--segmax` is defined as a copy number `loss`. A gene with a log2 copy ratio between `--upper` and `--lower` or with the length of the original fragment given its log2 copy rate greater than `--segmax` is defined as `normal`.
 
-## 3. How To Use
+## 4. How To Use
 
 Using this annotation script, you can run it by Python3 with seven parameters. Let's have a look at them.
 
