@@ -44,7 +44,9 @@ For a gene, the first case is that there is no segment that overlaps it. This is
 
 The second scenario is that the gene only has overlapping with one segment, which is the most common case. For this scenario, the CNV of the gene is assigned a log2 copy rate of this segment.
 
-The third case is that the gene overlaps with two segments. The fourth case is that the gene overlaps with more than two segments. For both cases, we take the maximum value of the absolute value of the `log2 copy ratio` of these segments that have overlap with the gene as the CNV of the gene.
+The third case is that the gene overlaps with two segments. The fourth case is that the gene overlaps with more than two segments. For both cases, we take the maximum value of the absolute value of the `log2 copy ratio` of these segments that have overlap with the gene as the CNV of the gene. Here is an example of assigning log2 copy ratio from segments to genes.
+
+![value](https://github.com/DZBohan/CNV_annotated_script/blob/main/images/value.png?raw=true)
 
 After assigning the corresponding log2 copy ratio to all genes, we assign the more intuitive CNV expressions, `loss`, `gain` or `normal`, to them. When using the script, you need to enter three threshold parameters for determining the CNV of genes, `--upper`, `--lower` and `--segmax`.
 
