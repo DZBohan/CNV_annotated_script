@@ -58,13 +58,13 @@ A gene with a log2 copy ratio greater than the `--upper` argument and the length
 
 Using this annotation script, you can run it by Python3 with seven parameters. Let's have a look at them.
 
-* `-N` or `--name`: name of the sample (default = filename)
 * `-U` or `--upper`: upper threshold of normal copy number. copy numbers higher than this value should be defined as copy gain (default = 0.58)
 * `-L` or `--lower`: lower threshold of normal copy number. copy numbers lower than this value should be defined as copy loss (default = -1)
 * `-M` or `--segmax`: maximum length of segments being used (default = 25000000)
+* `-O` or `--outpath`: full path of the directory to store the results (default = current path)
+* `-N` or `--name`: name of the sample (no default)
 * `-G` or `--geneinfo`: full path of the geneinfo file (no default)
 * `-S` or `--segfile`: full path of the segment-level CNV file (no default)
-* `-O` or `--outpath`: full path of the directory to store the results (default = current path)
 
 Here are a couple of examples of using this annotated script in the terminal.
 

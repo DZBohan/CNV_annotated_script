@@ -3,13 +3,17 @@ import pandas as pd
 import argparse
 
 parser = argparse.ArgumentParser(description='CNV_annotation')
-parser.add_argument('-N', '--name', default='filename', type=str, help='name of the sample')
+
+# these four parameters have default values
+parser.add_argument('-O', '--outpath', default='.', type=str, help='output path of the final results')
 parser.add_argument('-U', '--upper', default=0.58, type=float, help='upper threshold of normal copy number. copy numbers higher than this value should be defined as copy gain')
 parser.add_argument('-L', '--lower', default=-1, type=float, help='lower threshold of normal copy number. copy numbers lower than this value should be defined as copy loss')
 parser.add_argument('-M', '--segmax', default=25000000, type=int, help='maximum length of segments being used')
+
+# these three parameters do not have default value
+parser.add_argument('-N', '--name', type=str, help='name of the sample')
 parser.add_argument('-G', '--geneinfo', type=str, help='filename of the gene info')
 parser.add_argument('-S', '--segfile', type=str, help='filename of the segment-level CNV result')
-parser.add_argument('-O', '--outpath', default='.', type=str, help='output path of the final results')
 
 sample_name = parser.parse_args().name
 upper = parser.parse_args().upper
